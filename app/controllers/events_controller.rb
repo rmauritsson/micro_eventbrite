@@ -1,17 +1,18 @@
 class EventsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in?, only: [:create, :destroy]
   def new
     @event = Event.new
   end
 
   def show
+    @event = Event.find(params[:id])
   end
 
   def create
     @event = current_user.events.build(event_params)
     if @event.save
       flash[:success] = "Event created!"
-      redirect_to events_show_url
+      redirect_to events_path
     else
       render 'new'
     end
@@ -23,6 +24,6 @@ class EventsController < ApplicationController
   private
 
     def event_params
-      params.require(:event).permit(:description)
+      params.require(:event).permit(:title, :location, :date, :description)
     end
 end
