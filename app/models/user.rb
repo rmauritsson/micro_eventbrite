@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  include EventsHelper
+  has_many :events, foreign_key: 'creator_id', dependent: :destroy
+
   before_save { self.email = email.downcase }
 
   validates :name, presence: true, length: { maximum: 50 }

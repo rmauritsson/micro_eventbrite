@@ -3,9 +3,10 @@
     <%= link_to "EventBrite", '#', id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", '#' %></li>
+        <li><%= link_to "Home", events_show_url %></li>
         <% if logged_in? %>
-          <li><%= link_to "Create Event", '#' %></li>
+          <li><%= link_to "My Events", '#' %></li>
+          <li><%= link_to "Create Event", events_new_url %></li>
           <li><%= link_to "Log out", logout_url, method: :delete %></li>
         <% else %>
           <li><%= link_to "Log in", login_url %></li>
