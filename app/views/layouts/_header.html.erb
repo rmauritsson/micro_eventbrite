@@ -1,9 +1,9 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "EventBrite", '#', id: "logo" %>
+    <%= link_to "EventBrite", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", events_path %></li>
+        <li><%= link_to "Home", root_path %></li>
         <% if logged_in? %>
           <li><%= link_to "My Events", '#' %></li>
           <li><%= link_to "Create Event", new_event_path %></li>
