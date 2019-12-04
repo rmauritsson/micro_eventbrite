@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'pages/Index'
+  root 'pages#Index'
   #get 'events/new'
   #get 'events/show'
 
