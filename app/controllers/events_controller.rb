@@ -1,5 +1,9 @@
 class EventsController < ApplicationController
   before_action :logged_in?, only: [:create, :destroy]
+
+  def index
+    @event = Event.all
+  end
   def new
     @event = Event.new
   end
