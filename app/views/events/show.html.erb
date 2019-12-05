@@ -5,3 +5,17 @@
     <%= render @event %>
   </div>
 </div>
+
+<div class="container">
+  <div class="col-md-6 col-md-offset-3">
+    <% if @event.attendees.any? %>
+        <% @event.attendees.each do |attendee| %>
+            <span class="attendee">
+                <%= attendee.username %>
+            </span> <br/>
+        <% end %>
+    <% else %>
+        No attendees
+    <% end %><br/>
+  </div>
+</div>
