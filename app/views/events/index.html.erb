@@ -1,5 +1,31 @@
 <h1 align="center">All Events Here</h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-4">
-    <%= render 'events/display' %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-4">
+      <%= render 'events/display' %>
+    </div>
+  </div>
+
+<h2>Upcoming Events</h2>
+  <div class="row">
+   <% if @events.upcoming.any? %>
+     <ul class="media-list">
+       <%= render @events.upcoming %>
+     </ul>
+     <%= will_paginate @events.upcoming %>
+   <% else %>
+     <h3>Events (0)</h3>
+     <%= link_to new_event_path, class: 'btn btn-success' do %>
+       Add Event <i class="fa fa-plus-circle"></i>
+   <% end %>
+ <% end %>
+    </div>
+
+<h2>Past Events</h2>
+  <div class="row">
+  <% if @events.past.any? %>
+   <ul class="media-list">
+     <%= render @events.past %>
+   </ul>
+   <%= will_paginate @events.past %>
+  <% end %>
   </div>

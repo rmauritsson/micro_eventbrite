@@ -19,6 +19,15 @@ class UsersController < ApplicationController
     @events= @user.events
     @upcoming_events = @user.upcoming_events
   end
+
+  def upcoming_events
+    self.attended_events.upcoming
+  end
+
+  def previous_events
+    self.attended_events.past
+  end
+
   private
 
   def user_params
