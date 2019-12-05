@@ -1,22 +1,16 @@
-<h1>Event: <%= @event.title %></h1>
+<h1>Attendees of <%= @event.title %></h1>
+
 
 <div class="container">
   <div class="col-md-6 col-md-offset-3">
-    <%= render @event %>
-  </div>
-</div>
-
-<div class="container">
-  <div class="col-md-6 col-md-offset-3">
-    <% if @event.attendees.any? %>
-        <% @event.attendees.each do |attendee| %>
-            <span class="attendee">
-                <%= attendee.username %>
-            </span> <br/>
+    <ul>
+      <% if @list.count > 0 %>
+        <% @list.each do |f|%>
+            <li> <%= f.name %> (<%= f.email %>)</li>
         <% end %>
-    <% else %>
-        No attendees
-    <% end %><br/>
-    <%= render 'attend_cancel' %>
+      <% else %>
+        NO ATTENDEES
+      <% end %>
+    </ul>
   </div>
 </div>
