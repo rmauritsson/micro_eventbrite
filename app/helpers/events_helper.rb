@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module EventsHelper
   def created_events(user)
     render(user.events)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EventAttendeesController < ApplicationController
   def attend
     @event = Event.find(params[:id]).attendees << current_user
