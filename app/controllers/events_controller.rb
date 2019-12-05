@@ -2,9 +2,13 @@ class EventsController < ApplicationController
   before_action :logged_in?, only: [:create, :destroy]
 
   def index
-    @event = Event.all
+    if(params[:filter]== "user")
+      @event= current_user.events #user ID here
+    else
+      @event = Event.all
+    end
   end
-  
+
   def new
     @event = Event.new
   end
