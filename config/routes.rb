@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#Index'
-  #get 'events/new'
+  get 'event_attendees/attend', to: 'event_attendees#attend'
   #get 'events/show'
 
   get    '/login',   to: 'sessions#new'
@@ -15,4 +15,5 @@ Rails.application.routes.draw do
 
   resources :users
   resources :events
+  resources :event_attendees
 end

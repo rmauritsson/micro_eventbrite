@@ -6,7 +6,7 @@
           <h4>Location: <%= event.location %></h4>
           <h4>Date: <%= event.date %></h4>
           <h4>Description: <%= event.description %></h4>
-          <%= link_to "Attend this event", "#", class: "btn btn-xs btn-primary" %>
+          <%= link_to "Attend this event", event_attendees_attend_path(id: event.id),  class: "btn btn-xs btn-primary" %>
       </div>
     </div>
   </div>
