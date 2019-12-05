@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   include EventsHelper
   has_many :events, foreign_key: 'creator_id', dependent: :destroy
+  has_many :attended_events,  :through => :event_attendees
+  has_many :event_attendees,  :foreign_key => :attendee_id
 
   before_save { self.email = email.downcase }
 
