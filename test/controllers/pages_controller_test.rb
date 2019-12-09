@@ -1,10 +1,9 @@
-# frozen_string_literal: true
-
 require 'test_helper'
 
 class PagesControllerTest < ActionDispatch::IntegrationTest
-  test 'should get Index' do
-    get pages_Index_url
+  test "should get index" do
+    get pages_index_url
     assert_response :success
   end
+
 end
