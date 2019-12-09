@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :restrict_access
+
   def new
     @user = User.new
   end
@@ -25,4 +27,8 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+
+  def restrict_access
+	  redirect_to login_path || signup_path unless current_user
+	end
 end
