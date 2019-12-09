@@ -13,7 +13,10 @@
   <aside class="col-md-6">
     <section class="user_info">
       <% if @user.events.any? %>
-        <h3>Submitted (<%= @user.events.count %>) events</h3>
+        <h3>Created <%= @user.events.count %> events </h3>
+        <ul class="media-list">
+          <%= created_events(@user) %>
+        </ul>
       <% end %>
     </section>
 
