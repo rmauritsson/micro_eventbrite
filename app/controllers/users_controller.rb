@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :restrict_access
+  before_action :restrict_access, except: [:new, :show]
 
   def new
     @user = User.new
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash.now[:success] = 'Welcome to Micro Eventbrite!'
+      log_in(@user)
       redirect_to @user
     else
       render 'new'
@@ -29,6 +30,6 @@ class UsersController < ApplicationController
   end
 
   def restrict_access
-	  redirect_to login_path || signup_path unless current_user
+	  redirect_to login_path unless current_user
 	end
 end
