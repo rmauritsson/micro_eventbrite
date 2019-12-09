@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'pages#Index'
+  root 'pages#index'
   get 'event_attendees/attend', to: 'event_attendees#attend'
   #get 'events/show'
 
