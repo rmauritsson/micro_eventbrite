@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :restrict_access, except: [:new, :show]
+  before_action :restrict_access, only: %i[index show]
 
   def new
     @user = User.new
@@ -30,6 +30,6 @@ class UsersController < ApplicationController
   end
 
   def restrict_access
-	  redirect_to login_path unless current_user
-	end
+    redirect_to login_path unless current_user
+  end
 end
