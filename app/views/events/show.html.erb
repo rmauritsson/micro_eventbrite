@@ -1,0 +1,16 @@
+<h1>Attendees of <%= @event.title %></h1>
+
+
+<div class="container">
+  <div class="col-md-6 col-md-offset-3">
+    <ul>
+      <% if @list.count > 0 %>
+        <% @list.each do |f|%>
+            <li> <%= f.name %> (<%= f.email %>)</li>
+        <% end %>
+      <% else %>
+        NO ATTENDEES
+      <% end %>
+    </ul>
+  </div>
+</div>

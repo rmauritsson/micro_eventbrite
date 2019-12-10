@@ -1,11 +1,16 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "EventBrite", '#', id: "logo" %>
+    <%= link_to "EventBrite", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",   '#' %></li>
-        <li><%= link_to "Create Event",   '#' %></li>
-        <li><%= link_to "Log in", '#' %></li>
+        <li><%= link_to "Home", root_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to "My Events", users_show_url %></li>
+          <li><%= link_to "Create Event", new_event_path %></li>
+          <li><%= link_to "Log out", logout_path, method: 'delete' %></li>
+        <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
