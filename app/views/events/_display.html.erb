@@ -6,12 +6,10 @@
           <h4>Location: <%= event.location %></h4>
           <h4>Date: <%= event.date %></h4>
           <h4>Description: <%= event.description %></h4>
-            <% if current_user %>
+          <% if current_user %>
             <% if :button && event.creator != current_user && current_user.attended_events.find_by(id: event.id).nil? && event.date >= Date.today %>
-            <%= link_to "Attend this event", event_attendees_attend_path(id: event.id),  class: 'btn btn-primary' %>
-          <% end %>
-          <% else %>
-          redirect_to users_show_url
+              <%= link_to "Attend this event", event_attendees_attend_path(id: event.id),  class: 'btn btn-primary' %>
+            <% end %>
           <% end %>
       </div>
     </div>
